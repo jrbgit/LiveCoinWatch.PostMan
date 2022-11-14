@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "838cd784-5573-448a-86c6-51101c3930e8",
+		"name": "LiveCoinWatchAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15417487"
+	},
+	"item": [
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/status",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Credits",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/credits",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"credits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fiats",
+			"item": [
+				{
+					"name": "All Fiats",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/fiats/all",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"fiats",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exchanges",
+			"item": [
+				{
+					"name": "Exchanges List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"sort\": \"volume\",\r\n    \"order\": \"descending\",\r\n    \"offset\": 0,\r\n    \"limit\": 50,\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/exchanges/list",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"exchanges",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exchanges Single",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"code\": \"binance\",\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/exchanges/single",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"exchanges",
+								"single"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coins",
+			"item": [
+				{
+					"name": "Coins List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"sort\": \"rank\",\r\n    \"order\": \"ascending\",\r\n    \"offset\": 0,\r\n    \"limit\": 50,\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/coins/list",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"coins",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coins Map",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"codes\": [\"ETH\", \"BNB\", \"BTC\"],\r\n    \"sort\": \"rank\",\r\n    \"order\": \"ascending\",\r\n    \"offset\": 0,\r\n    \"limit\": 0,\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/coins/map",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"coins",
+								"map"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coins Single History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"code\": \"ETH\",\r\n    \"start\": 1668382665099,\r\n    \"end\": 1668468765099,\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/coins/single/history",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"coins",
+								"single",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coins Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"platform\": \"ETH\",\r\n    \"address\": \"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/coins/contract",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"coins",
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Coins Single",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"code\": \"BTC\",\r\n    \"meta\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/coins/single",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"coins",
+								"single"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Platforms",
+			"item": [
+				{
+					"name": "All Platforms",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/platforms/all",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"platforms",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Overview",
+			"item": [
+				{
+					"name": "Overview",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/overview",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"overview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Overview History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"start\": 1668381518856,\r\n    \"end\": 1668467918857\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/overview/history",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"overview",
+								"history"
+							],
+							"query": [
+								{
+									"key": "x-a",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "base",
+			"value": "https://api.livecoinwatch.com",
+			"type": "string"
+		}
+	]
+}
