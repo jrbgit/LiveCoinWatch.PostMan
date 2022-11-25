@@ -1,3 +1,3 @@
 # LiveCoinWatch.PostMan
 
-Postman Collection for the Live Coin Watch API
+Postman Collection for the LiveCoinWatch API
